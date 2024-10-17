@@ -3,7 +3,7 @@ using RunHub.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RunGroopWebApp.Models
+namespace RunHub.Models
 {
 	public class Race
 	{
