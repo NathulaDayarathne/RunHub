@@ -1,11 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using RunHub.Models;
+﻿using Microsoft.EntityFrameworkCore;
 using RunHub.Models;
 
 namespace RunHub.Data
 {
-	public class ApplicationDbContext : IdentityDbContext<AppUser>
+	public class ApplicationDbContext : DbContext
 	{
 		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
 		{

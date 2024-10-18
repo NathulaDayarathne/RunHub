@@ -6,8 +6,9 @@ using System.Diagnostics;
 
 namespace RunHub.Models
 {
-	public class AppUser : IdentityUser
+	public class AppUser
 	{
+		public string Id { get; set; }
 		public int? Pace { get; set; }
 		public int? Mileage { get; set; }
 		public string? ProfileImageUrl { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace RunHub.Data.Enum
 {
-	public class RaceCategory
+	public enum RaceCategory
 	{
 		Marathon,
         Ultra,
