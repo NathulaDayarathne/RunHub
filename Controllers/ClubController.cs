@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RunHub.Data;
 using RunHub.Models;
 namespace RunHub.Controllers
@@ -20,7 +21,7 @@ namespace RunHub.Controllers
 
         public IActionResult Detail(int id)   //CCCCCCC
         {
-            Club club = _context.Clubs.FirstOrDefault(c => c.Id == id); //MMMMMMM
+            Club club = _context.Clubs.Include(a => a.Address).FirstOrDefault(c => c.Id == id); //MMMMMMM
             return View(club);  //VVVVVV
         }
 
