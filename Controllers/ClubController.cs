@@ -20,7 +20,7 @@ namespace RunHub.Controllers
 
         public IActionResult Detail(int id)   //CCCCCCC
         {
-            List<Club> club = _context.Clubs.FirstOrDefault(c => c.Id == id); //MMMMMMM
+            Club club = _context.Clubs.FirstOrDefault(c => c.Id == id); //MMMMMMM
             return View(club);  //VVVVVV
         }
 
