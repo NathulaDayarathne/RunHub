@@ -1,28 +1,31 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RunHub.Data;
+using RunHub.Interfaces;
 using RunHub.Models;
 namespace RunHub.Controllers
 {
 	public class ClubController: Controller
 	{
-        private readonly ApplicationDbContext _context;
+        
+		private readonly IClubRepository clubRepository;
 
-        public ClubController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+		public ClubController(IClubRepository clubRepository)
+        { 
+			this.clubRepository = clubRepository;
+		}
 
-        public IActionResult Index()   //CCCCCCC
+        public async Task<IActionResult> Index()   //CCCCCCC
 		{
-            List<Club> clubs = _context.Clubs.ToList(); //MMMMMMM
+            IEnumerable<Club> clubs = await clubRepository.GetAll(); //MMMMMMM
             return View(clubs);  //VVVVVV
 		}
 
-        public IActionResult Detail(int id)   //CCCCCCC
+        public async Task<IActionResult> Detail(int id)   //CCCCCCC
         {
-            Club club = _context.Clubs.Include(a => a.Address).FirstOrDefault(c => c.Id == id); //MMMMMMM
-            return View(club);  //VVVVVV
+            Club club = await clubRepository.GetByIdAsync(id); //MMMMMMM
+
+			return View(club);  //VVVVVV
         }
 
     }

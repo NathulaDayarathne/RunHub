@@ -8,7 +8,7 @@ namespace RunHub.Interfaces
 
 		Task<Club> GetByIdAsync(int id);
 
-		Task<IEnumerable<Club>> GetClubCity(string city);
+		//Task<IEnumerable<Club>> GetClubCity(string city);
 
 		bool Add(Club club);
 		bool Update(Club club);	
